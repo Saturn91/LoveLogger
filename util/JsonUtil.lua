@@ -20,7 +20,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ]]
 
-local _json = require "loveLogger.util.jsonDecode"
+local _json = require "util.jsonDecode"
 json = {
     parse = _json.decode
 }

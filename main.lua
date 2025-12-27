@@ -4,7 +4,7 @@ This example will directly crash on execution (because of the Log.error) and cre
 --]]
 
 -- Now you can require modules from the submodule
-Log = require("loveLogger.Log")
+Log = require("Log")
 
 function love.load()
     Log.init({

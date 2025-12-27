@@ -18,7 +18,7 @@ All of these messages will get stored in a file (default `log.log`) in the games
 
 I recommend importing this repository as a git submodule.
 
-1. `git submodule add https://github.com/Saturn91/LoveLogger.git libs/loveLogger`
+1. `git submodule add https://github.com/Saturn91/LoveLogger.git libs/`
 2. in order to allow relative imports use this handy code:
 
 ```lua

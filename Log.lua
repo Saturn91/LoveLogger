@@ -1,4 +1,4 @@
-require("loveLogger.util.JsonUtil")
+require("util.JsonUtil")
 
 local Log = {}
 local logFileLines = {}
