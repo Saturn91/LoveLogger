@@ -2,11 +2,17 @@ require("util.JsonUtil")
 
 local Log = {}
 local logFileLines = {}
+local prefixLog = "LOG: "
+local prefixWarn = "WARN: "
+local prefixError = "ERR: "
 
 function Log.init(config)
     config = config or {}
     Log.onError = config.onError
     Log.logFilePath = config.logFilePath or "log.log"
+    prefixLog = config.prefixLog or prefixLog
+    prefixWarn = config.prefixWarn or prefixWarn
+    prefixError = config.prefixError or prefixError
 
     logFileLines = {}
     
@@ -23,17 +29,17 @@ function Log.log(message)
         msgStr = tostring(message)
     end
 
-    table.insert(logFileLines, "LOG : " .. msgStr)
-    print("LOG: " .. msgStr)
+    table.insert(logFileLines, prefixLog .. msgStr)
+    print(prefixLog .. msgStr)
 end
 
 function Log.warn(message)
-    table.insert(logFileLines, "WARN: " .. message)
-    print("WARNING: " .. message)
+    table.insert(logFileLines, prefixWarn .. message)
+    print(prefixWarn .. message)
 end
 
 function Log.error(message)
-    table.insert(logFileLines, "ERR : " .. message .. "\n" .. debug.traceback())
+    table.insert(logFileLines, prefixError .. message .. "\n" .. debug.traceback())
     Log.saveLog()
     error(message)
     
